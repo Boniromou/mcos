@@ -1,0 +1,29 @@
+---
+conversion:
+  date_format: "%Y-%m-%d"
+  datetime_format: "%Y-%m-%dT%H:%M:%S.%L"
+  time_format: "%Y-%m-%dT%H:%M:%S.%L"
+  decimal_precision: 2
+gateway:
+  server:
+    host: <%= ENV['SERVER_HOST'] %>
+    port: <%= ENV['SERVER_PORT'] %>
+  router:
+    authorization:
+      Bearer: "GS"
+      header_field_prefix: X-Gs
+      signature_algorithm: "SHA256"
+      enable_content_checksum: true
+repositories:
+  general:
+    pool_size: 2
+  tour_repository:
+    database: tour
+    database_url: mysql2://<%= ENV['MYSQL_USERNAME'] %>:<%= ENV['MYSQL_PASSWORD'] %>@<%= ENV['MYSQL_HOST'] %>:<%= ENV['MYSQL_PORT'] %>/<%= ENV['MYSQL_DATABASE'] %>
+    enable_sql_log: true
+interactors:
+  general:
+    pool_size: 2
+integrators:
+  general:
+    pool_size: 2

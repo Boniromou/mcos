@@ -1,0 +1,36 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ../../
+      dockerfile: docker/release/Dockerfile
+    links:
+      - db
+    environment:
+      MYSQL_USERNAME: laxino
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: rothorn_cms_production
+      MYSQL_PASSWORD: password
+    command: ["bundle", "exec", "thin", "start"]
+
+  db:
+    image: mysql:5.7
+    hostname: db
+    expose:
+      - "3306"
+    environment:
+      MYSQL_USER: laxino
+      MYSQL_DATABASE: rothorn_cms_production
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+
+  agent:
+    image: cheokman/ansible
+    links:
+      - db
+    environment:
+      PROBE_HOST: "db"
+      PROBE_PORT: "3306"
+    command: ["probe.yml"]
+

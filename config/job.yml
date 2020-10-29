@@ -1,0 +1,9 @@
+---
+jobs:
+  submit_rating:
+    general:
+      worker: job_interactor
+    jobs:
+      - id: 01CYNYKYC9ZYH1XEE9RKGQ6B23
+        start_after: 1s
+        wait: 30s

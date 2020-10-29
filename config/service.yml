@@ -1,0 +1,22 @@
+---
+gateway:
+  router:
+    routes:
+      health:
+        base_path: /
+        to: admin_interactor
+        apis:
+          check:
+            method: get
+            parameters:
+            result:
+              code: { type: string, bind_to: error_code }
+              message: { type: string }
+              service: { type: string }
+interactors:
+  admin_interactor:
+    operations:
+      check:
+  job_interactor:
+    operations:
+      submit_rating:

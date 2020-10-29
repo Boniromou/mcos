@@ -1,0 +1,48 @@
+integrators:
+  operator_integrator:
+    errors: { 
+      ExecutionFailure: "Please contact third-party for information", 
+      InvalidArguments: "Unrecognized auth key.", 
+      DuplicateTrans: "Record already existed with this ref_trans_id", 
+      RecordNotFound: "Record not found with this ref_trans_id",
+      LockedPlayer: "User already stopped/locked", 
+      InvalidFundoutAmt: "Insufficient/invalid wallet amount for found out", 
+      InvalidFundinAmt: "Insufficient/invalid wallet amount for found in",
+      InternalError: "Internal server error", 
+      UnderMaintenance: "Under Maintenance", 
+      ServiceUnavailable: "Please contact third-party for information", 
+      SystemBusy: "Please contact third-party for information", 
+      UnknownError: "Unknown Error",
+      InvalidSessionToken: "The third-party token is invalid.", 
+      FrozenPlayer: "Account status is locked/stopped/chain stop.", 
+      InvalidCurrency: "Invalid Currency", 
+      InvalidCredit: "Insufficient Credit, make sure GP wallet has enough credit before fund transfer", 
+      DuplicateTransWithoutSameValue: "Make sure the input amt is same as the transaction being cancelled and must be a positive decimal",
+      InvalidTransDate: "Must be current UTC datatime +/- 5 minutes", 
+      InvalidLoginName: "Session Token does not correspond with provided login name", 
+      InvalidIP: "Each session token is only for the IP address referred by the session token", 
+      InvalidGameID: "Instrument_id/game_id is not correct, please contact third-party.", 
+      GameSiteStop: "Please contact third-party for information",
+      OverWinCreditLimit: "Over Win Credit Limit", 
+      InvalidInitFlag: "Init_flag has to be either 1 or 0", 
+      MismatchInitFlag: "If init_flag = 1, balance should be 0. otherwise init_flag should be 0", 
+      InvalidSumAmt: "Sum blance from GP must great or equal than 0",
+      CancelFundInNotExist: "Third party has not transfer fund to GP, nothing to cancel", 
+      CancelFundInNotMatch: "CancelFundInNotMatch", 
+      BalanceRecordNotExist: "BalanceRecordNotExist", 
+      AmountNotEnough: "AmountNotEnough",
+      InvalidFundinRecord: "InvalidFundinRecord", 
+      SumFundInAmtNotMatch: "Mismatch sum of fund in history", 
+      SumFundOutAmtNotMatch: "Mismatch sum of fund out history", 
+      SumBetAmtNotMatch: "Mismatch sum of bet history", 
+      BalanceNotMatch: "BalanceNotMatch", 
+      InvalidTransType: "InvalidTransType",
+      InvalidJackpotBetID: "jackpot id is invalid", 
+      InvalidTransID: "No such transaction exist for such user", 
+      InvalidBetTransID: "paramter ref_trans_id is incorrect",
+      DuplicateTransWithSameValue: "Duplicate Trans", 
+      CancelFundInNotExists: "GP wallet is initialized, but not fund transfer history associated with input login_name"
+    }
+    apis:
+      open_rating:
+      close_rating:

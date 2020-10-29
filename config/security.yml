@@ -1,0 +1,15 @@
+---
+security:
+  authorizers:
+    tgp:
+      type: TGP
+      access_key_id: vj8DN5dJWWX4le
+      secret_access_key: NmuQcuP0tcyvJN6P5V7
+    lx4054:
+      type: LX
+      access_key_id: 4054
+      secret_access_key: b5uDalqT1aqhg8fdntPaI/nYxD35WjEn
+    lx8500:
+      type: LX
+      access_key_id: 8500
+      secret_access_key: Rjm1naUlAFPK52aW4G+lAuPIbCgT1n2x  

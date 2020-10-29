@@ -1,0 +1,51 @@
+version: '2'
+services:
+  test:
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile
+    volumes_from:
+      - cache
+    links:
+      - db
+    environment:
+      MYSQL_USERNAME: rothorn
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: rothorn_cms_test
+      MYSQL_PASSWORD: password
+      TEST_OUTPUT_DIR: /opt/deploy/application/reports
+
+  builder:
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile
+    volumes_from:
+      - cache
+    entrypoint: "entrypoint.sh"
+    command: ['bundle', 'install']
+
+  agent:
+    image: cheokman/ansible
+    links:
+      - db
+    environment:
+      PROBE_HOST: "db"
+      PROBE_PORT: "3306"
+    command: ["probe.yml"]
+
+  db:
+    image: mysql:5.7
+    hostname: db
+    expose:
+      - "3306"
+    environment:
+      MYSQL_USER: rothorn
+      MYSQL_DATABASE: rothorn_cms_test
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+
+  cache:
+    build:
+      context: ../../
+      dockerfile: docker/development/Dockerfile.cache
