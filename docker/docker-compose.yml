@@ -1,6 +1,6 @@
 version: "3"
 services:
-  tms: &default
+  mcos: &default
     image: ruby:2.5
     volumes:
       - ../:/app
@@ -19,7 +19,7 @@ services:
       MYSQL_PASSWORD: as123654
       ENV: Development
 
-  tms_test:
+  mcos_test:
     <<: *default
     ports:
       - "7102:80"

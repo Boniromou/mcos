@@ -24,4 +24,4 @@ ENTRYPOINT ["test.sh"]
 CMD ["bundle", "exec", "rake", "spec:ci"]
 
 VOLUME /opt/deploy/application
-LABEL application=tms
+LABEL application=mcos

@@ -1,4 +1,4 @@
-module TMS
+module MCOS
   module Jobs
     class SubmitRating < Citrine::Runner::Job::CatchUp
       attr_reader :pending

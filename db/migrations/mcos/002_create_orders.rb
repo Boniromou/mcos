@@ -3,7 +3,6 @@ Sequel.migration do
       create_table :orders do
         primary_key :id
   
-        column :, Integer,  null: false
         column :table_number, Integer,  null: false
         column :status, String, null: false
   

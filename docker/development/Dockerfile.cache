@@ -15,4 +15,4 @@ RUN mkdir -p $REL_PATH && \
 
 COPY . $REL_PATH
 VOLUME /opt/deploy/application
-LABEL application=tms
+LABEL application=mcos

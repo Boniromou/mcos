@@ -1,4 +1,4 @@
-module TMS
+module MCOS
   module Authorizers
     class LX
       class Bearer < Citrine::Warden::Authorizer::Bearer

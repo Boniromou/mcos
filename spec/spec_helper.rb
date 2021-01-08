@@ -123,7 +123,7 @@ def clean_database
 end
 
 def get_repo_connect
-  @repo ||= TMS::Repositories::CageRepository.new(db_hash)
+  @repo ||= MCOS::Repositories::CageRepository.new(db_hash)
 end
 
 

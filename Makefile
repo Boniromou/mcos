@@ -1,8 +1,8 @@
 # Project variables
-PROJECT_NAME ?= tms
+PROJECT_NAME ?= mcos
 #ORG_NAME ?= cheokman
 ORG_NAME ?= rothorn
-REPO_NAME ?= tms
+REPO_NAME ?= mcos
 
 # Filenames
 DEV_COMPOSE_FILE := docker/development/docker-compose.yml
@@ -50,7 +50,7 @@ test:
 	${INFO} "Ensuring database is ready..."
 	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) up -d db
 	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) run --rm agent
-	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) run --rm test bin/tms -c config/config_jenkins.yml migration tour_repository:migrate
+	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) run --rm test bin/mcos -c config/config_jenkins.yml migration tour_repository:migrate
 	${INFO} "Running tests..."
 	@ docker-compose -p $(DEV_PROJECT) -f $(DEV_COMPOSE_FILE) up test
 	@ rm -rf ./target
@@ -91,7 +91,7 @@ release:
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) up -d db
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) run --rm agent
 	${INFO} "Running database migrations..."
-	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) run --rm app bin/tms -c config/config_jenkins.yml migration tour_repository:migrate
+	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) run --rm app bin/mcos -c config/config_jenkins.yml migration tour_repository:migrate
 	${INFO} "Running application..."
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) up -d app
 	${INFO} "Running acceptance tests..."

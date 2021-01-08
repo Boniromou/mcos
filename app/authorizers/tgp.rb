@@ -1,4 +1,4 @@
-module TMS
+module MCOS
   module Authorizers
     class TGP
       class Bearer < Citrine::Warden::Authorizer::Bearer

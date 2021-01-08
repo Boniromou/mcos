@@ -1,4 +1,4 @@
-module TMS
+module MCOS
   module Interactors
     module AdminOperations
       class Check < Citrine::Operation
