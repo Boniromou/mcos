@@ -13,10 +13,46 @@ gateway:
               code: { type: string, bind_to: error_code }
               message: { type: string }
               service: { type: string }
+      menu:
+        base_path: api/menu
+        to: menu_interactor
+        apis:
+          get_menu:
+            method: get
+            parameters:
+            result:
+              code: { type: string }
+              message: { type: string }
+              menus:
+                array: true
+                required: false
+                schema: 
+                  id: { type: integer }
+                  name: { type: string }
+                  price: { type: string }
+                  type: { type: string }
+      order:
+        base_path: api/order
+        to: order_interactor
+        apis:
+          create_order:
+            method: post
+            parameters:
+              bill_id: { type: integer }
+              table_id: { type: integer }
+              foods: { type: string }
+              remark: { type: string, required: false }
+              operator: { type: string, required: false }
+            result:
+              code: { type: string }
+              message: { type: string }
 interactors:
   admin_interactor:
     operations:
       check:
-  job_interactor:
+  menu_interactor:
     operations:
-      submit_rating:
+      get_menu:
+  order_interactor:
+    operations:
+      create_order:

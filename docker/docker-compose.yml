@@ -8,21 +8,21 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "7101:80"
+      - "9100:9100"
     environment: &env
       SERVER_HOST: 0.0.0.0
-      SERVER_PORT: 80
+      SERVER_PORT: 9100
       MYSQL_HOST: rm-bp1sdg7u40r9lx9wojo.mysql.rds.aliyuncs.com
       MYSQL_DATABASE: maid_cafe
       MYSQL_PORT: 3306
       MYSQL_USERNAME: mark
-      MYSQL_PASSWORD: as123654
+      MYSQL_PASSWORD: Miku5239
       ENV: Development
 
-  mcos_test:
-    <<: *default
-    ports:
-      - "7102:80"
-    environment:
-      <<: *env
-      MYSQL_DATABASE: rothorn_cms_test
+  # mcos_test:
+  #   <<: *default
+  #   ports:
+  #     - "7102:80"
+  #   environment:
+  #     <<: *env
+  #     MYSQL_DATABASE: rothorn_cms_test

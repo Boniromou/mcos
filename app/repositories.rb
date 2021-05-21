@@ -1,1 +1,1 @@
-require_relative "repositories/tour_repository"
+require_relative "repositories/mcos_repository"

@@ -17,8 +17,8 @@ gateway:
 repositories:
   general:
     pool_size: 2
-  tour_repository:
-    database: tour
+  mcos_repository:
+    database: mcos
     database_url: mysql2://<%= ENV['MYSQL_USERNAME'] %>:<%= ENV['MYSQL_PASSWORD'] %>@<%= ENV['MYSQL_HOST'] %>:<%= ENV['MYSQL_PORT'] %>/<%= ENV['MYSQL_DATABASE'] %>
     enable_sql_log: true
 interactors:
