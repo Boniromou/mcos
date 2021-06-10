@@ -7,12 +7,8 @@ module MCOS
         include Error
 
         class Success < Citrine::Operation::Success
-          data do |ctx|
-            { 
               code "OK"
               message "Request is now completed."
-            }
-          end
         end
 
         repository_alias :mcos_repository
