@@ -1,7 +1,7 @@
 PATH
-  remote: vendor/gems/citrine-0.3.3
+  remote: vendor/gems/citrine-0.3.20
   specs:
-    citrine (0.3.3)
+    citrine (0.3.20)
       celluloid (>= 0.17.3)
       http (~> 4.0.0)
       rack (>= 2.0.5)
@@ -171,7 +171,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  citrine (= 0.3.3)!
+  citrine (= 0.3.20)!
   fuubar
   jwt (= 2.1.0)
   mysql2
@@ -182,4 +182,4 @@ DEPENDENCIES
   ulid (= 1.0.0)
 
 BUNDLED WITH
-   1.16.1
+   1.17.3

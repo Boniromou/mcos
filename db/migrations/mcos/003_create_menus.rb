@@ -6,6 +6,8 @@ Sequel.migration do
         column :name, String,  null: false
         column :type, String, null: false
         column :price, Integer,  null: false
+        column :status, String,  null: false
+        column :quantity, Integer,  null: false
   
         column :created_at,  DateTime, null: false
         column :updated_at,  DateTime, null: false

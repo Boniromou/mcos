@@ -3,7 +3,7 @@
 source 'http://gems.sd.laxino.com'
 
 gem 'mysql2' 
-gem 'citrine', '0.3.3', :path => "vendor/gems/citrine-0.3.3"
+gem 'citrine', '0.3.20', :path => "vendor/gems/citrine-0.3.20"
 gem 'jwt', '2.1.0'
 gem 'ulid', '1.0.0'
 gem 'rake'

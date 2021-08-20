@@ -13,6 +13,22 @@ gateway:
               code: { type: string, bind_to: error_code }
               message: { type: string }
               service: { type: string }
+      table:
+        base_path: api/table
+        to: table_interactor
+        apis:
+          list_table:
+            method: get
+            parameters:
+            result:
+              code: { type: string }
+              message: { type: string }
+              table:
+                array: true
+                required: false
+                schema: 
+                  id: { type: integer }
+                  status: { type: string }
       menu:
         base_path: api/menu
         to: menu_interactor
@@ -30,7 +46,37 @@ gateway:
                   id: { type: integer }
                   name: { type: string }
                   price: { type: string }
+                  status: { type: string }
+                  quantity: { type: integer }
                   type: { type: string }
+          create:
+            method: post
+            parameters:
+              price: { type: integer }
+              type: { type: string }
+              name: { type: string }
+              quantity: { type: integer }
+            result:
+              code: { type: string }
+              message: { type: string }
+          delete:
+            method: post
+            parameters:
+              menu_id: { type: integer }
+            result:
+              code: { type: string }
+              message: { type: string } 
+          edit:
+            method: post
+            parameters:
+              name: { type: string }
+              price: { type: string }
+              type: { type: string }
+              quantity: { type: integer }
+              menu_id: { type: integer }
+            result:
+              code: { type: string }
+              message: { type: string } 
       order:
         base_path: api/order
         to: order_interactor
@@ -68,9 +114,15 @@ interactors:
   admin_interactor:
     operations:
       check:
+  table_interactor:
+    operations:
+      list_table:
   menu_interactor:
     operations:
       get_menu:
+      create:
+      delete:
+      edit:
   order_interactor:
     operations:
       create_order:

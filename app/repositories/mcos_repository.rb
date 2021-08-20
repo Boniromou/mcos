@@ -18,6 +18,13 @@ module MCOS
         def before_save
           self.updated_at = Time.now  
         end
+
+        # dataset_module do 
+        #   def find_all_menu()
+        #     where(:target => '') 
+        #   end
+        # end
+
       end
 
       model :order do

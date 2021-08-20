@@ -10,7 +10,7 @@ module MCOS
           data do |ctx|
             {
               menus: ctx[:menu]
-             }
+            }
           end
         end
 
