@@ -25,9 +25,9 @@ module MCOS
         end
 
         def list_menu(db, params)
-          p db
           sql = db.from(:menus)
           sql = sql.order(Sequel.desc(Sequel[:menus][:created_at]))
+          sql = sql.where(Sequel[:menus][:status] => 'actived')
           sql.select(Sequel[:menus].*).all
         end
 

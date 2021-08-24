@@ -84,32 +84,13 @@ gateway:
           create_order:
             method: post
             parameters:
-              bill_id: { type: integer }
               table_id: { type: integer }
-              foods: { type: string }
+              order_details: { type: string, array: true }
               remark: { type: string, required: false }
               operator: { type: string, required: false }
             result:
               code: { type: string }
               message: { type: string }
-      bill:
-        base_path: api/bill
-        to: bill_interactor
-        apis:
-          get_bill:
-            method: get
-            parameters:
-            result:
-              code: { type: string }
-              message: { type: string }
-              menus:
-                array: true
-                required: false
-                schema: 
-                  id: { type: integer }
-                  table_id: { type: string }
-                  total: { type: string }
-                  type: { type: string }
 interactors:
   admin_interactor:
     operations:

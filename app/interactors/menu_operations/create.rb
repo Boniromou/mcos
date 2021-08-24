@@ -23,7 +23,7 @@ module MCOS
             type: context[:params][:type],
             name: context[:params][:name],
             quantity: context[:params][:quantity],
-            status: 'on_stock'
+            status: 'actived'
           })
           true
         end

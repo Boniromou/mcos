@@ -27,10 +27,9 @@ module MCOS
         end
 
         def delete(context)
-          context[:menu].status = 'inactive'
+          context[:menu].status = 'inactived'
           context[:menu].save
         end
-
 
       end
     end
