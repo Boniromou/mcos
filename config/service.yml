@@ -91,6 +91,26 @@ gateway:
             result:
               code: { type: string }
               message: { type: string }
+          delete:
+            method: post
+            parameters:
+              order_id: { type: integer }
+            result:
+              code: { type: string }
+              message: { type: string }
+          list_orders_by_table:
+            method: get
+            parameters:
+              table_id: { type: integer }
+            result:
+              code: { type: string }
+              message: { type: string }
+              data:
+                schema_inline:
+                  order_ids:
+                    array: true
+                  order_detail:
+                    array: true
 interactors:
   admin_interactor:
     operations:
@@ -107,6 +127,8 @@ interactors:
   order_interactor:
     operations:
       create_order:
+      list_orders_by_table:
+      delete:
   bill_interactor:
     operations:
       get_bill:

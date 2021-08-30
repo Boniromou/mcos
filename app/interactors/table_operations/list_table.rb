@@ -21,11 +21,9 @@ module MCOS
 
         def get_table(context)
           context[:table] = mcos_repository.run_sql(method(:list_table), context[:params])
-          p context[:table]
         end
 
         def list_table(db, params)
-          p db
           sql = db.from(:tables)
           sql = sql.order(Sequel.desc(Sequel[:tables][:created_at]))
           sql.select(Sequel[:tables].*).all

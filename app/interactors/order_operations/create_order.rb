@@ -15,9 +15,10 @@ module MCOS
 
         pass :before_run
         step :create_order
-        step :mapping
+        step :create_order_detail
 
         def create_order(context)
+          # context[:params][:order_details]
           context[:order] = mcos_repository.create_order({
             table_id: context[:params][:table_id],
             status: 'created',
@@ -26,7 +27,7 @@ module MCOS
           true
         end
 
-        def mapping(context)
+        def create_order_detail(context)
           context[:params][:order_details].each do |data|
             d = JSON.parse(data.gsub('=>', ':'))
             context[:order_detail] = mcos_repository.create_order_detail({
@@ -36,10 +37,10 @@ module MCOS
               quantity: d["quantity"],
               total: d["quantity"] * d["price"].to_i
             })
+          end
           true
         end
-        end
- 
+
       end
     end
   end
