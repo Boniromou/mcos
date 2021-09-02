@@ -18,7 +18,7 @@ module MCOS
         pass :delete
 
         def find_menu(context)
-          context[:menu] = mcos_repository.find_menu(id: context[:params][:menu_id])
+          p context[:menu] = mcos_repository.find_menu(id: context[:params][:menu_id])
           if !context[:menu]
             context[:result] = MenuNotFound.new(context)
             return false

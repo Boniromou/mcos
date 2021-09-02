@@ -14,8 +14,16 @@ module MCOS
         repository_alias :mcos_repository
 
         pass :before_run
+        step :inactive_table
         step :create_order
         step :create_order_detail
+
+        def inactive_table(context)
+          context[:table] = mcos_repository.find_table(id: context[:params][:table_id])
+          context[:table].status = "inactvated"
+          context[:table].save
+          true
+        end
 
         def create_order(context)
           # context[:params][:order_details]

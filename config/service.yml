@@ -29,6 +29,20 @@ gateway:
                 schema: 
                   id: { type: integer }
                   status: { type: string }
+          checkout:
+            method: post
+            parameters:
+              table_id: { type: integer }
+              is_member: { type: string  }
+            result:
+              code: { type: string }
+              message: { type: string }
+              # table:
+              #   array: true
+              #   required: false
+              #   schema: 
+              #     id: { type: integer }
+              #     status: { type: string }
       menu:
         base_path: api/menu
         to: menu_interactor
@@ -107,9 +121,9 @@ gateway:
               message: { type: string }
               data:
                 schema_inline:
-                  order_ids:
+                  orders_id:
                     array: true
-                  order_detail:
+                  orders_detail:
                     array: true
 interactors:
   admin_interactor:
@@ -118,6 +132,7 @@ interactors:
   table_interactor:
     operations:
       list_table:
+      checkout:
   menu_interactor:
     operations:
       get_menu:
